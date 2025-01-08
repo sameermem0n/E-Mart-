@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="icon" href="https://img.icons8.com/?size=100&id=3tL355qYoTqf&format=png&color=000000">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body class="bg-gray-100">
+    <header >
+   <!-- Navbar -->
+        <!-- For small screens (less than 768px) -->
+        <div class="md:hidden">
+          <nav class="flex items-center justify-between px-4 py-2 bg-white shadow-md">
+            <!-- Logo and Brand Name -->
+            <span class="flex items-center">
+               <!-- Hamburger Icon -->
+    <button id="sidebarToggle" class="text-blue-600 ml-2 text-xl focus:outline-none" onclick="toggleSidebar()">
+     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 ml-1 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+   </button>
+              <img class="w-8 h-8 ml" src="Images\logo-symbol.png" alt="Brand Logo">
+              <a class="ml-2  text-xl font-semibold text-blue-400" href="index.html">E-Mart</a>
+            </span>
+     <!-- Sidebar -->
+<div id="sidebar" class="fixed top-0 left-0 w-3/4 md:w-1/4 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50">
+  <button onclick="toggleSidebar()" class="p-4 text-gray-500 hover:text-gray-900">Close</button>
+  <ul class="px-4">
+    <div class="w-64 h-screen bg-gray-100 p-4">
+      <!-- User Section -->
+      <div class="mb-6">
+        <div class="flex items-center space-x-2">
+          <div class="w-10 h-10 bg-gray-300 rounded-full"></div>
+          <span class="text-sm font-medium text-gray-700">Sign in | Register</span>
+        </div>
+      </div>
+    
+      <!-- Navigation Links -->
+      <ul class="space-y-4 text-sm">
+        <li class="flex items-center space-x-3 cursor-pointer hover:text-blue-500">
+          <a href="index.html">Home</a>
+        </li>
+        <li class="flex items-center space-x-3 cursor-pointer hover:text-blue-500">
+          <a href="prodcut-list.html">Categories</a>
+        </li>
+        <li class="flex items-center space-x-3 cursor-pointer hover:text-blue-500">
+          <a href="prodcut-list.html">Hot Offer</a>
+        </li>
+        <li class="flex items-center space-x-3 cursor-pointer hover:text-blue-500">
+          <a href="checkout.html">Order</a>
+        </li>
+      </ul>
+    
+      <div class="mt-6 space-y-4 border-t border-gray-200 pt-4">
+        <div class="flex items-center space-x-3 cursor-pointer hover:text-blue-500">
+          <span>English | USD</span>
+        </div>
+        <div class="flex items-center space-x-3 cursor-pointer hover:text-blue-500">
+          <span>Contact Us</span>
+        </div>
+        <div class="flex items-center space-x-3 cursor-pointer hover:text-blue-500">
+          <span>About</span>
+        </div>
+      </div>
+    
+    
+      <div class="mt-6 space-y-2 border-t border-gray-200 pt-4 text-xs text-gray-600">
+        <p class="cursor-pointer hover:text-blue-500">User Agreement</p>
+        <p class="cursor-pointer hover:text-blue-500">Partnership</p>
+        <p class="cursor-pointer hover:text-blue-500">Privacy Policy</p>
+      </div>
+    </div>
+    
+  </ul>
+</div>
+      
+            <!--Cart/Profile Icons -->
+    <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-4 pr-15">
+              <!-- Cart Icon -->
+              <a href="cart.html" class="relative">
+                <img src="https://img.icons8.com/material-outlined/24/000000/shopping-cart.png" alt="Cart">
+                <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">0</span>
+            </a>
+              
+              <!-- Profile Icon -->
+              <a href="profile.html">
+                 <img src="https://img.icons8.com/material-outlined/24/000000/user.png" alt="User">
+              </a>
+           </div>
+          </nav>
+    
+          <!-- Search Bar -->
+          <div class="flex justify-center px-1 py-2">
+            <div class="flex items-center w-full max-w-md overflow-hidden bg-white border-2 border-blue-600 rounded-md">
+              <!-- Input Field -->
+              <input type="text" placeholder="Search" class="flex-1 px-2 py-1 text-sm border-none outline-none placeholder:text-xs md:placeholder:text-sm">
+    
+              <!-- Categories Dropdown -->
+              <select name="products" id="products" class="px-1 py-1 text-xs bg-white border-l border-blue-600 outline-none cursor-pointer md:text-sm">
+                <option value="" selected="">All Categories</option>
+                <option value="backpack">Backpacks</option>
+                <option value="smartphone">Smartphones</option>
+                <option value="laptop">Laptops</option>
+                <option value="headphones">Headphones</option>
+                <option value="appliances">Appliances</option>
+              </select>
+    
+              <!-- Search Button -->
+              <button class="px-1 py-2 text-xs text-white bg-blue-600 md:text-sm hover:bg-blue-700">
+                Search
+              </button>
+            </div>          </div>
+  </div>
+    
+ <!-- For larger screens (768px and above) -->
+        <div class="hidden md:block">
+          <nav class="flex items-center px-5 py-2 border-b-2 border-gray-200 md:px-2 justify-evenly">
+            <!-- Brand Logo and Name -->
+            <span class="flex items-center">
+              <img class="w-10 h-10 md:w-7 md:h-7 lg:w-8 lg:h-8" src="Images\logo-symbol.png" alt="Brand Logo">
+              <a class="ml-2 text-2xl font-semibold text-blue-400 md:text-xl md:ml-1" href="index.html">E-Mart</a>
+            </span>
+    
+            <!-- Search Input with Select and Button -->
+            <div class="flex items-center overflow-hidden border-2 border-blue-600 rounded-md max-w-max">
+              <input type="text" placeholder="Search" class="px-2 py-1 border-none outline-none w-90 md:w-56 md:px-2 md:placeholder:text-sm" style="flex: 1">
+              <select name="products" id="products" class="px-3 py-1 bg-white border-0 border-1 border-blue-650 outline-none cursor-pointer md:text-sm">
+                <option value="" selected=""><a href="prodcut list.html">All Categories</option>
+                <option value="backpack">Backpacks</option>
+                <option value="smartphone">Smartphone</option>
+                <option value="laptop">Laptop</option>
+                <option value="headphones">Headphones</option>
+                <option value="appliances">Appliances</option>
+              </select>
+              <button class="px-3 py-1 text-white bg-blue-600">Search</button>
+            </div>
+
+            <div class="flex items-center space-x-4">
+             <!-- Cart Icon -->
+             <a href="cart.html" class="relative">
+              <img src="https://img.icons8.com/material-outlined/24/000000/shopping-cart.png" alt="Cart">
+              <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">0</span>
+          </a>
+
+            
+           
+              <!-- Profile Icon -->
+              <a href="profile.html">
+                 <img src="https://img.icons8.com/material-outlined/24/000000/user.png" alt="User">
+              </a>
+           </div>
+          
+
+    </div>
+  
+  </nav>
+  <div class="hidden md:block">
+  <nav class="flex items-center px-5 py-2 border-b-2 border-gray-200 md:px-2 justify-evenly">
+    <!-- Left-side menu -->
+    <ul class="flex items-center space-x-5 md:space-x-2 lg:space-x-3">
+        <li class="cursor-pointer md:text-sm"><a href="index.html">Home</a></li>
+      <li class="cursor-pointer md:text-sm"><a href="prodcut-list.html">All Category</a></li>
+      <li class="cursor-pointer md:text-sm"><a href="prodcut-list.html">Hot Offers</a></li>
+      <li class="cursor-pointer md:text-sm"><a href="prodcut-list.html">Menu Items</a></li>
+      <li>
+        <select name="help" id="help" class="px-1 py-1 bg-white border border-gray-300 rounded outline-none cursor-pointer md:text-xs lg:text-sm">
+          <option value="" selected="">Help</option>
+          <option value="contact">Contact</option>
+          <option value="faq">FAQ</option>
+          <option value="terms">Terms &amp; Conditions</option>
+          <option value="returns">Returns &amp; Exchanges</option>
+          <option value="shipping">Shipping &amp; Delivery</option>
+        </select>
+      </li>
+    </ul>
+
+    <!-- Right-side options -->
+    <div class="flex items-center space-x-2">
+      <select name="countries" id="countries" class="px-1 py-1 bg-white border border-gray-300 rounded outline-none cursor-pointer md:text-xs lg:text-sm">
+        <option value="english">English, USD</option>
+        <option value="spanish">Spanish, EUR</option>
+        <option value="french">French, EUR</option>
+      </select>
+      <select name="shipping" id="shipping" class="px-1 py-1 bg-white border border-gray-300 rounded outline-none cursor-pointer md:text-xs lg:text-sm">
+        <option value="italy">Ship to, Italy</option>
+        <option value="usa">Ship to, USA</option>
+        <option value="canada">Ship to, Canada</option>
+      </select>
+    </div>
+  </nav>
+</div>
+
+    </header>
+    <div class="container mx-auto p-6">
+      <h1 class="text-2xl font-bold text-center mb-6">Checkout</h1>
+    
+      <!-- Checkout Sections -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Order Summary Section -->
+        <div class="col-span-2 bg-white rounded-lg shadow-md p-6">
+          <h2 class="text-lg font-semibold mb-4">Order Summary</h2>
+          <div id="checkout-items">
+            <!-- Checkout items will be dynamically inserted here -->
+          </div>
+    
+          <!-- Coupon Section -->
+          <div class="mt-4">
+            <input
+              type="text"
+              id="coupon-code"
+              class="w-full border rounded-lg px-4 py-2 mb-2"
+              placeholder="Enter Coupon Code"
+            />
+            <button
+              id="apply-coupon"
+              class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg"
+            >
+              Apply Coupon
+            </button>
+            <p id="coupon-message" class="text-green-500 mt-2 hidden">Coupon applied successfully!</p>
+            <p id="coupon-error" class="text-red-500 mt-2 hidden">Invalid coupon code!</p>
+          </div>
+        </div>
+    
+        <!-- Address and Payment Section -->
+        <div class="col-span-1 space-y-6">
+          <!-- Address Form -->
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-lg font-semibold mb-4">Shipping Address</h2>
+            <form id="address-form">
+              <input
+                type="text"
+                id="full-name"
+                class="w-full border rounded-lg px-4 py-2 mb-4"
+                placeholder="Full Name"
+                required
+              />
+              <input
+                type="text"
+                id="address-line"
+                class="w-full border rounded-lg px-4 py-2 mb-4"
+                placeholder="Address Line"
+                required
+              />
+              <input
+                type="text"
+                id="phone-number"
+                class="w-full border rounded-lg px-4 py-2 mb-4"
+                placeholder="Phone Number"
+                required
+              />
+              <input
+                type="text"
+                id="city"
+                class="w-full border rounded-lg px-4 py-2 mb-4"
+                placeholder="City"
+                required
+              />
+              <input
+                type="text"
+                id="zip-code"
+                class="w-full border rounded-lg px-4 py-2 mb-4"
+                placeholder="ZIP Code"
+                required
+              />
+            </form>
+            <div id="total-section" class="text-lg font-semibold mt-4">
+              Total: $<span id="total-price">0.00</span>
+            </div>
+          </div>
+    
+          <!-- Payment Method -->
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-lg font-semibold mb-4">Payment Method</h2>
+            <div class="space-y-4">
+              <label>
+                <input type="radio" name="payment-method" value="credit-card" class="mr-2"> Credit/Debit Card
+              </label>
+              <label>
+                <input type="radio" name="payment-method" value="paypal" class="mr-2"> PayPal
+              </label>
+              <label>
+                <input type="radio" name="payment-method" value="cash-on-delivery" class="mr-2"> Cash on Delivery
+              </label>
+            </div>
+            <div id="payment-details" class="mt-4">
+              <div id="credit-card-info" class="hidden">
+                <input
+                  type="text"
+                  id="card-number"
+                  class="w-full border rounded-lg px-4 py-2 mb-4"
+                  placeholder="Card Number"
+                />
+                <input
+                  type="text"
+                  id="expiry-date"
+                  class="w-full border rounded-lg px-4 py-2 mb-4"
+                  placeholder="Expiry Date (MM/YY)"
+                />
+                <input
+                  type="text"
+                  id="cvv"
+                  class="w-full border rounded-lg px-4 py-2 mb-4"
+                  placeholder="CVV"
+                />
+              </div>
+              <div id="paypal-info" class="hidden">
+                <p>Login to your PayPal account to complete the payment.</p>
+              </div>
+              <div id="cash-info" class="hidden">
+                <p>Cash on Delivery selected. Please have the exact amount ready.</p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Confirm Order Button -->
+          <button
+            id="confirm-order"
+            class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-lg"
+          >
+            Confirm Order
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    
+  
+     <!-- Footer -->
+     <div class="px-4 py-5 bg-gray-100">
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:grid-rows-1">
+          <!-- Brand Section -->
+          <div class="mt-5">
+            <div class="flex items-center">
+              <img src="Images\logo-symbol.png" class="w-9 h-9">
+              <a class="ml-2 text-lg font-semibold text-blue-400" href="#">E-Mart</a>
+            </div>
+            <p class="mt-2 text-xs">
+              Best information about the company which will be helpful for you.
+            </p>
+            <div class="flex items-center mt-2 space-x-1">
+              <a href="#" class="text-center text-white transition duration-300 transform bg-gray-400 rounded-full hover:text-blue-600 hover:scale-125 w-7 h-7">
+                <i class="text-lg fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="text-center text-white transition duration-300 transform bg-gray-400 rounded-full hover:text-pink-500 hover:scale-125 w-7 h-7">
+                <i class="text-lg fab fa-instagram"></i>
+              </a>
+              <a href="#" class="text-center text-white transition duration-300 transform bg-gray-400 rounded-full hover:text-red-600 hover:scale-125 w-7 h-7">
+                <i class="text-lg fab fa-youtube"></i>
+              </a>
+              <a href="#" class="text-center text-white transition duration-300 transform bg-gray-400 rounded-full hover:text-blue-400 hover:scale-125 w-7 h-7">
+                <i class="text-lg fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-center text-white transition duration-300 transform bg-gray-400 rounded-full hover:text-blue-800 hover:scale-125 w-7 h-7">
+                <i class="text-lg fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- About Section -->
+          <div class="mt-5">
+            <h1 class="mb-2 text-lg font-semibold">About</h1>
+            <p class="footer-link">About Us</p>
+            <p class="footer-link">Find Store</p>
+            <p class="footer-link">Categories</p>
+            <p class="footer-link">Blogs</p>
+          </div>
+
+          <!-- Partnership Section -->
+          <div class="mt-5">
+            <h1 class="mb-2 text-lg font-semibold">Partnership</h1>
+            <p class="footer-link">About Us</p>
+            <p class="footer-link">Find Store</p>
+            <p class="footer-link">Categories</p>
+            <p class="footer-link">Blogs</p>
+          </div>
+
+          <!-- Information Section -->
+          <div class="mt-5">
+            <h1 class="mb-2 text-lg font-semibold">Information</h1>
+            <p class="footer-link">Help Center</p>
+            <p class="footer-link">Money Refund</p>
+            <p class="footer-link">Shipping</p>
+            <p class="footer-link">Contact Us</p>
+          </div>
+
+          <!-- User Section -->
+          <div class="mt-5">
+            <h1 class="mb-2 text-lg font-semibold">For Users</h1>
+            <p class="footer-link">Login</p>
+            <p class="footer-link">Register</p>
+            <p class="footer-link">Settings</p>
+            <p class="footer-link">My Orders</p>
+          </div>
+
+          <!-- Get App Section -->
+          <div class="mt-5">
+            <h1 class="mb-2 text-lg font-semibold">Get App</h1>
+            <img src="Images\app store.png" alt="App Store" class="mb-2 w-28">
+            <img src="Images\google store.png" alt="Google Play" class="w-28">
+          </div>
+        </div>
+      </div>
+
+      <!-- CopyRight -->
+      <div class="py-2 bg-gray-200">
+        <div class="flex flex-col items-center justify-between mx-3 sm:flex-row">
+          <!-- Footer Text -->
+          <h1 class="mb-2 text-xs sm:mb-0">© 2023 E-Mart</h1>
+          <!-- Language Selector -->
+          <select name="language" id="language" class="px-2 py-1 text-xs bg-white border border-gray-300 rounded outline-none cursor-pointer">
+            <img src="Images\US.png">
+            <option value="english">English
+                
+            </option>
+            <option value="french">French</option>
+            <option value="spanish">Spanish</option>
+          </select>
+        </div>
+      </div>
+    </main>
+<!-- JavaScript -->
+<script>
+  let totalPrice = 0; // Global variable for total price
+
+  // Load Cart Data from LocalStorage
+  function loadCheckout() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const checkoutItemsContainer = document.getElementById("checkout-items");
+    const totalPriceContainer = document.getElementById("total-price");
+
+    totalPrice = 0;
+
+    // Render Items in Checkout
+    checkoutItemsContainer.innerHTML = cart
+      .map((item) => {
+        const itemTotal = item.price * item.quantity;
+        totalPrice += itemTotal;
+
+        return `
+          <div class="flex items-center justify-between border-b py-4">
+            <div class="flex items-center">
+              <img src="${item.image}" alt="${item.name}" class="w-20 h-20 rounded-md">
+              <div class="ml-4">
+                <p class="font-semibold">${item.name}</p>
+                <p class="text-sm text-gray-600">$${item.price.toFixed(2)}</p>
+                <p class="text-sm text-gray-600">Quantity: ${item.quantity}</p>
+              </div>
+            </div>
+            <p class="text-lg font-semibold">$${itemTotal.toFixed(2)}</p>
+          </div>
+        `;
+      })
+      .join("");
+
+    // Update Total Price in Address Section
+    totalPriceContainer.textContent = totalPrice.toFixed(2);
+  }
+
+  // Apply Coupon
+  document.getElementById("apply-coupon").addEventListener("click", () => {
+    const couponCode = document.getElementById("coupon-code").value.trim();
+    const couponMessage = document.getElementById("coupon-message");
+    const couponError = document.getElementById("coupon-error");
+
+    const validCoupons = {
+      SAVE10: 10, // 10% discount
+      SAVE20: 20, // 20% discount
+    };
+
+    if (validCoupons[couponCode]) {
+      const discount = validCoupons[couponCode];
+      const discountedTotal = totalPrice - (totalPrice * discount) / 100;
+
+      document.getElementById("total-price").textContent =
+        discountedTotal.toFixed(2);
+
+      couponMessage.classList.remove("hidden");
+      couponError.classList.add("hidden");
+    } else {
+      couponMessage.classList.add("hidden");
+      couponError.classList.remove("hidden");
+    }
+  });
+
+  // Confirm Order
+  document.getElementById("confirm-order").addEventListener("click", () => {
+    const name = document.getElementById("full-name").value.trim();
+    const address = document.getElementById("address-line").value.trim();
+    const phone = document.getElementById("phone-number").value.trim();
+    const city = document.getElementById("city").value.trim();
+    const zipCode = document.getElementById("zip-code").value.trim();
+    const paymentMethod = document.querySelector('input[name="payment-method"]:checked')?.value;
+
+    if (!name || !address || !phone || !city || !zipCode || !paymentMethod) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    alert(
+      `Order Confirmed! Thank you, ${name}. Your items will be shipped to ${address}, ${city}, ${zipCode}. Payment Method: ${paymentMethod}`
+    );
+    localStorage.removeItem("cart"); // Clear cart after confirmation
+  });
+
+  // Handle Payment Method Selection
+  const paymentMethods = document.querySelectorAll('input[name="payment-method"]');
+  paymentMethods.forEach(method => {
+    method.addEventListener('change', (e) => {
+      const selectedMethod = e.target.value;
+      document.getElementById("credit-card-info").classList.add("hidden");
+      document.getElementById("paypal-info").classList.add("hidden");
+      document.getElementById("cash-info").classList.add("hidden");
+
+      if (selectedMethod === "credit-card") {
+        document.getElementById("credit-card-info").classList.remove("hidden");
+      } else if (selectedMethod === "paypal") {
+        document.getElementById("paypal-info").classList.remove("hidden");
+      } else if (selectedMethod === "cash-on-delivery") {
+        document.getElementById("cash-info").classList.remove("hidden");
+      }
+    });
+  });
+
+  // Initialize Checkout Page
+  loadCheckout();
+
+ // Add item to cart
+function addToCart(item) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItem = cart.find(cartItem => cartItem.id === item.id);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ ...item, quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount(); // Update cart count
+}
+
+// Initialize cart count on page load
+window.onload = updateCartCount;
+
+
+// Update cart count for all elements with id="cart-count"
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+
+    // Select all elements with id="cart-count"
+    const cartCountElements = document.querySelectorAll('#cart-count');
+    if (cartCountElements.length > 0) {
+        cartCountElements.forEach(cartCount => {
+            cartCount.textContent = totalItems; // Update each element
+        });
+    } else {
+        console.error('Cart count elements not found in DOM');
+    }
+}
+
+
+// Define the toggleSidebar function
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('-translate-x-full'); // Replace with the class you want to toggle
+}
+
+// Attach the function to the window object
+window.toggleSidebar = toggleSidebar;
+
+// Keep the DOMContentLoaded listener for other initialization
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM fully loaded");
+});
+</script>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Mart Product Details</title>
+    <link rel="icon" href="https://img.icons8.com/?size=100&id=3tL355qYoTqf&format=png&color=000000">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="product-details.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+      /* Sidebar styles */
+#sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out; /* Smooth sliding */
+}
+
+/* Sidebar visible */
+#sidebar.open {
+    transform: translateX(0); /* Bring sidebar into view */
+}
+#cart-count {
+    display: inline-block;
+    visibility: visible;
+}
+
+
+    </style>
+  </head>
+<body class="bg-gray-100">
+ <!-- Navbar -->
+        <!-- For small screens (less than 768px) -->
+        <div class="md:hidden">
+          <nav class="flex items-center justify-between px-4 py-2 bg-white shadow-md">
+            <!-- Logo and Brand Name -->
+            <span class="flex items-center">
+               <!-- Hamburger Icon -->
+    <button id="sidebarToggle" class="text-blue-600 ml-2 text-xl focus:outline-none" onclick="toggleSidebar()">
+     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 ml-1 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+   </button>
+              <img class="w-8 h-8 ml" src="Images\logo-symbol.png" alt="Brand Logo">
+              <a class="ml-2  text-xl font-semibold text-blue-400" href="index.html">E-Mart</a>
+            </span>
+     <!-- Sidebar -->
+<div id="sidebar" class="fixed top-0 left-0 w-3/4 md:w-1/4 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50">
+  <button onclick="toggleSidebar()" class="p-4 text-gray-500 hover:text-gray-900">Close</button>
+  <ul class="px-4">
+    <div class="w-64 h-screen bg-gray-100 p-4">
+      <!-- User Section -->
+      <div class="mb-6">
+        <div class="flex items-center space-x-2">
+          <div class="w-10 h-10 bg-gray-300 rounded-full"></div>
+          <span class="text-sm font-medium text-gray-700">Sign in | Register</span>
+        </div>
+      </div>
+    
+      <!-- Navigation Links -->
+      <ul class="space-y-4 text-sm">
+        <li class="flex items-center space-x-3 cursor-pointer hover:text-blue-500">
+          <a href="index.html">Home</a>
+        </li>
+        <li class="flex items-center space-x-3 cursor-pointer hover:text-blue-500">
+          <a href="prodcut-list.html">Categories</a>
+        </li>
+        <li class="flex items-center space-x-3 cursor-pointer hover:text-blue-500">
+          <a href="prodcut-list.html">Hot Offer</a>
+        </li>
+        <li class="flex items-center space-x-3 cursor-pointer hover:text-blue-500">
+          <a href="checkout.html">Order</a>
+        </li>
+      </ul>
+    
+      <div class="mt-6 space-y-4 border-t border-gray-200 pt-4">
+        <div class="flex items-center space-x-3 cursor-pointer hover:text-blue-500">
+          <span>English | USD</span>
+        </div>
+        <div class="flex items-center space-x-3 cursor-pointer hover:text-blue-500">
+          <span>Contact Us</span>
+        </div>
+        <div class="flex items-center space-x-3 cursor-pointer hover:text-blue-500">
+          <span>About</span>
+        </div>
+      </div>
+    
+    
+      <div class="mt-6 space-y-2 border-t border-gray-200 pt-4 text-xs text-gray-600">
+        <p class="cursor-pointer hover:text-blue-500">User Agreement</p>
+        <p class="cursor-pointer hover:text-blue-500">Partnership</p>
+        <p class="cursor-pointer hover:text-blue-500">Privacy Policy</p>
+      </div>
+    </div>
+    
+  </ul>
+</div>
+      
+            <!--Cart/Profile Icons -->
+    <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-4 pr-15">
+              <!-- Cart Icon -->
+              <a href="cart.html" class="relative">
+                <img src="https://img.icons8.com/material-outlined/24/000000/shopping-cart.png" alt="Cart">
+                <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">0</span>
+            </a>
+              
+              <!-- Profile Icon -->
+              <a href="profile.html">
+                 <img src="https://img.icons8.com/material-outlined/24/000000/user.png" alt="User">
+              </a>
+           </div>
+          </nav>
+    
+          <!-- Search Bar -->
+          <div class="flex justify-center px-1 py-2">
+            <div class="flex items-center w-full max-w-md overflow-hidden bg-white border-2 border-blue-600 rounded-md">
+              <!-- Input Field -->
+              <input type="text" placeholder="Search" class="flex-1 px-2 py-1 text-sm border-none outline-none placeholder:text-xs md:placeholder:text-sm">
+    
+              <!-- Categories Dropdown -->
+              <select name="products" id="products" class="px-1 py-1 text-xs bg-white border-l border-blue-600 outline-none cursor-pointer md:text-sm">
+                <option value="" selected="">All Categories</option>
+                <option value="backpack">Backpacks</option>
+                <option value="smartphone">Smartphones</option>
+                <option value="laptop">Laptops</option>
+                <option value="headphones">Headphones</option>
+                <option value="appliances">Appliances</option>
+              </select>
+    
+              <!-- Search Button -->
+              <button class="px-1 py-2 text-xs text-white bg-blue-600 md:text-sm hover:bg-blue-700">
+                Search
+              </button>
+            </div>          </div>
+  </div>
+    
+ <!-- For larger screens (768px and above) -->
+        <div class="hidden md:block">
+          <nav class="flex items-center px-5 py-2 border-b-2 border-gray-200 md:px-2 justify-evenly">
+            <!-- Brand Logo and Name -->
+            <span class="flex items-center">
+              <img class="w-10 h-10 md:w-7 md:h-7 lg:w-8 lg:h-8" src="Images\logo-symbol.png" alt="Brand Logo">
+              <a class="ml-2 text-2xl font-semibold text-blue-400 md:text-xl md:ml-1" href="index.html">E-Mart</a>
+            </span>
+    
+            <!-- Search Input with Select and Button -->
+            <div class="flex items-center overflow-hidden border-2 border-blue-600 rounded-md max-w-max">
+              <input type="text" placeholder="Search" class="px-2 py-1 border-none outline-none w-90 md:w-56 md:px-2 md:placeholder:text-sm" style="flex: 1">
+              <select name="products" id="products" class="px-3 py-1 bg-white border-0 border-1 border-blue-650 outline-none cursor-pointer md:text-sm">
+                <option value="" selected=""><a href="prodcut list.html">All Categories</option>
+                <option value="backpack">Backpacks</option>
+                <option value="smartphone">Smartphone</option>
+                <option value="laptop">Laptop</option>
+                <option value="headphones">Headphones</option>
+                <option value="appliances">Appliances</option>
+              </select>
+              <button class="px-3 py-1 text-white bg-blue-600">Search</button>
+            </div>
+
+            <div class="flex items-center space-x-4">
+             <!-- Cart Icon -->
+             <a href="cart.html" class="relative">
+              <img src="https://img.icons8.com/material-outlined/24/000000/shopping-cart.png" alt="Cart">
+              <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">0</span>
+          </a>
+
+            
+           
+              <!-- Profile Icon -->
+              <a href="profile.html">
+                 <img src="https://img.icons8.com/material-outlined/24/000000/user.png" alt="User">
+              </a>
+           </div>
+          
+
+    </div>
+  
+  </nav>
+  <div class="hidden md:block">
+  <nav class="flex items-center px-5 py-2 border-b-2 border-gray-200 md:px-2 justify-evenly">
+    <!-- Left-side menu -->
+    <ul class="flex items-center space-x-5 md:space-x-2 lg:space-x-3">
+        <li class="cursor-pointer md:text-sm"><a href="index.html">Home</a></li>
+      <li class="cursor-pointer md:text-sm"><a href="prodcut-list.html">All Category</a></li>
+      <li class="cursor-pointer md:text-sm"><a href="prodcut-list.html">Hot Offers</a></li>
+      <li class="cursor-pointer md:text-sm"><a href="prodcut-list.html">Menu Items</a></li>
+      <li>
+        <select name="help" id="help" class="px-1 py-1 bg-white border border-gray-300 rounded outline-none cursor-pointer md:text-xs lg:text-sm">
+          <option value="" selected="">Help</option>
+          <option value="contact">Contact</option>
+          <option value="faq">FAQ</option>
+          <option value="terms">Terms &amp; Conditions</option>
+          <option value="returns">Returns &amp; Exchanges</option>
+          <option value="shipping">Shipping &amp; Delivery</option>
+        </select>
+      </li>
+    </ul>
+
+    <!-- Right-side options -->
+    <div class="flex items-center space-x-2">
+      <select name="countries" id="countries" class="px-1 py-1 bg-white border border-gray-300 rounded outline-none cursor-pointer md:text-xs lg:text-sm">
+        <option value="english">English, USD</option>
+        <option value="spanish">Spanish, EUR</option>
+        <option value="french">French, EUR</option>
+      </select>
+      <select name="shipping" id="shipping" class="px-1 py-1 bg-white border border-gray-300 rounded outline-none cursor-pointer md:text-xs lg:text-sm">
+        <option value="italy">Ship to, Italy</option>
+        <option value="usa">Ship to, USA</option>
+        <option value="canada">Ship to, Canada</option>
+      </select>
+    </div>
+  </nav>
+</div>
+
+
+    <!-- Product Details Section -->
+    <div class="container mx-auto px-4 py-6">
+      <div class="flex flex-wrap lg:flex-nowrap">
+          <!-- Product Image Carousel -->
+          <div class="w-full lg:w-1/2 p-4">
+              <div id="carousel" class="relative">
+                  <img id="main-product-image" src="" alt="Product Image" class="w-full h-auto rounded border">
+                  <div class="flex space-x-2 mt-4">
+                      <img src="" id="image-1" class="w-20 h-20 border rounded cursor-pointer hover:ring-2 hover:ring-blue-500">
+                      <img src="" id="image-2" class="w-20 h-20 border rounded cursor-pointer hover:ring-2 hover:ring-blue-500">
+                      <img src="" id="image-3" class="w-20 h-20 border rounded cursor-pointer hover:ring-2 hover:ring-blue-500">
+                  </div>
+              </div>
+          </div>
+
+          <!-- Product Details -->
+          <div class="w-full lg:w-1/2 p-4">
+              <h1 id="product-name" class="text-3xl font-bold mb-2"></h1>
+              <p id="product-price" class="text-2xl text-green-500 font-semibold"></p>
+              <p id="product-category" class="text-sm text-gray-500 mb-4"></p>
+              <p id="Specifications" class="text-gray-700 mb-4"></p>
+              <div id="product-rating" class="text-yellow-500 mb-4"></div>
+
+
+              
+
+              <button id="add-to-cart"data-id="1" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700">
+                  Add to Cart
+              </button>
+              <button id="buy-now" class="bg-blue-500 text-white px-6 py-2 rounded ml-2 hover:bg-blue-700">
+                  Buy Now
+              </button>
+          </div>
+      </div>
+  </div>
+
+  <!-- Related Products Section -->
+  <div class="container mx-auto px-4 py-6">
+      <h2 class="text-xl font-semibold mb-4">Related Products</h2>
+      <div id="related-products" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <!-- Dynamically load related products here -->
+      </div>
+  </div>
+
+      <!-- Footer -->
+      <div class="px-4 py-5 bg-gray-100">
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:grid-rows-1">
+          <!-- Brand Section -->
+          <div class="mt-5">
+            <div class="flex items-center">
+              <img src="Images\logo-symbol.png" class="w-9 h-9">
+              <a class="ml-2 text-lg font-semibold text-blue-400" href="#">E-Mart</a>
+            </div>
+            <p class="mt-2 text-xs">
+              Best information about the company which will be helpful for you.
+            </p>
+            <div class="flex items-center mt-2 space-x-2">
+              <a href="#" class="text-center text-white transition duration-300 transform bg-gray-400 rounded-full hover:text-blue-600 hover:scale-125 w-7 h-7">
+                <i class="text-lg fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="text-center text-white transition duration-300 transform bg-gray-400 rounded-full hover:text-pink-500 hover:scale-125 w-7 h-7">
+                <i class="text-lg fab fa-instagram"></i>
+              </a>
+              <a href="#" class="text-center text-white transition duration-300 transform bg-gray-400 rounded-full hover:text-red-600 hover:scale-125 w-7 h-7">
+                <i class="text-lg fab fa-youtube"></i>
+              </a>
+              <a href="#" class="text-center text-white transition duration-300 transform bg-gray-400 rounded-full hover:text-blue-400 hover:scale-125 w-7 h-7">
+                <i class="text-lg fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-center text-white transition duration-300 transform bg-gray-400 rounded-full hover:text-blue-800 hover:scale-125 w-7 h-7">
+                <i class="text-lg fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- About Section -->
+          <div class="mt-5">
+            <h1 class="mb-2 text-lg font-semibold">About</h1>
+            <p class="footer-link">About Us</p>
+            <p class="footer-link">Find Store</p>
+            <p class="footer-link">Categories</p>
+            <p class="footer-link">Blogs</p>
+          </div>
+
+          <!-- Partnership Section -->
+          <div class="mt-5">
+            <h1 class="mb-2 text-lg font-semibold">Partnership</h1>
+            <p class="footer-link">About Us</p>
+            <p class="footer-link">Find Store</p>
+            <p class="footer-link">Categories</p>
+            <p class="footer-link">Blogs</p>
+          </div>
+
+          <!-- Information Section -->
+          <div class="mt-5">
+            <h1 class="mb-2 text-lg font-semibold">Information</h1>
+            <p class="footer-link">Help Center</p>
+            <p class="footer-link">Money Refund</p>
+            <p class="footer-link">Shipping</p>
+            <p class="footer-link">Contact Us</p>
+          </div>
+
+          <!-- User Section -->
+          <div class="mt-5">
+            <h1 class="mb-2 text-lg font-semibold">For Users</h1>
+            <p class="footer-link">Login</p>
+            <p class="footer-link">Register</p>
+            <p class="footer-link">Settings</p>
+            <p class="footer-link">My Orders</p>
+          </div>
+
+          <!-- Get App Section -->
+          <div class="mt-5">
+            <h1 class="mb-2 text-lg font-semibold">Get App</h1>
+            <img src="Images\app store.png" alt="App Store" class="mb-2 w-28">
+            <img src="Images\google store.png" alt="Google Play" class="w-28">
+          </div>
+        </div>
+      </div>
+
+      <!-- CopyRight -->
+      <div class="py-2 bg-gray-200">
+        <div class="flex flex-col items-center justify-between mx-3 sm:flex-row">
+          <!-- Footer Text -->
+          <h1 class="mb-2 text-xs sm:mb-0">© 2023 E-Mart</h1>
+          <!-- Language Selector -->
+          <select name="language" id="language" class="px-2 py-1 text-xs bg-white border border-gray-300 rounded outline-none cursor-pointer">
+            <img src="Images\US.png">
+            <option value="english">English
+                
+            </option>
+            <option value="french">French</option>
+            <option value="spanish">Spanish</option>
+          </select>
+        </div>
+      </div>
+
+
+
+
+</body>
+</html>

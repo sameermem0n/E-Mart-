@@ -1,0 +1,186 @@
+[
+    { "id": 1,
+     "name": "Smartphone",
+      "price": 699,
+      "rating": 4.5,
+      "quantity": 1,
+      "category": "electronics",
+      "Specifications":"A high-quality smartphone with advanced features.",
+      "image": "Images/Smartphone.jpg",
+      "images": [
+            "Images/apple - iphone 11 pro.png",
+            "Images/6208024_3215461.jpg",
+            "images/1.png"
+        ] 
+    },
+
+    { "id": 2,
+     "name": "Laptop",
+     "price": 999,
+     "Specifications":"A lightweight laptop with powerful performance.",
+     "rating": 4.8, 
+     "category": "electronics",
+     "image": "Images/laptopmain.jpg",
+     "images": [
+            "images/laptop2.jpg",
+            "images/laptop3.jpg",
+            "images/laptop4.jpg"
+        ]
+     },
+
+
+    { "id": 3,
+     "name": "T-shirt", 
+     "price": 19,
+     "Specifications":"A product specification template provides a benchmark for product quality and ways to test product performance against your expectations during the development process. By following this document, your team helps ensure that the product will pass quality assurance.",
+     "rating": 4.2,
+     "category": "fashion", 
+     "image": "Images/Youth Basic Tee - Kelly Green _ XL.jpg",
+     "images": [
+        "images/CRUCIANI Short-sleeve Cotton T-shirt - Black.jpg",
+        "images/CAMISETA DE GOLA COM NERVURAS.jpg",
+        "images/blank-1886013_1280.png"
+    ]
+ },
+
+
+    {"id": 4,
+     "name": "Smart Watches", 
+     "price": 89,
+     "Specifications":"A product specification template provides a benchmark for product quality and ways to test product performance against your expectations during.",
+     "rating": 4.0, 
+     "category": "home",
+     "image": "Images/watch.jpg",
+     "images": [
+        "images/Apple Watch.jpg",
+        "images/Apple Watch Série 9 ….jpg",
+        "images/Apple Watch SE (2nd Gen).jpg"
+    ]
+    },
+
+
+    {"id": 5,
+     "name": "Blender",
+     "price": 49,
+     "Specifications":"A product specification template provides a benchmark for product quality and ways to test product performance against your expectations during the development process. By following this document, your team helps ensure that the product will pass quality assurance.",
+     "rating": 4.6,
+     "category": "home",
+     "image": "Images/Bilender180x.jpg",
+     "images": [
+        "images/laptop2.jpg",
+        "images/laptop3.jpg",
+        "images/laptop4.jpg"
+    ] 
+    },
+
+
+    {"id": 6,
+     "name": "Pot", 
+     "price": 49,
+     "Specifications":"A product specification template provides a benchmark for product quality and ways to test product performance against your expectations during the development process. By following this document, your team helps ensure that the product will pass quality assurance.", 
+     "rating": 4.6,
+     "category": "home",
+     "image": "Images/Port.jpg",
+     "images": [
+        "images/laptop2.jpg",
+        "images/laptop3.jpg",
+        "images/laptop4.jpg"
+    ]
+     },
+
+
+    {
+        "id": 7,
+     "name": "Gaming sets",
+     "price": 49,
+     "Specifications":"A product specification template provides a benchmark for product quality and ways to test product performance against your expectations during the development process. By following this document, your team helps ensure that the product will pass quality assurance.",
+     "rating": 4.3,
+     "category": "home",
+     "image": "Images/Gaming sets 180x.jpg",
+     "images": [
+        "images/laptop2.jpg",
+        "images/laptop3.jpg",
+        "images/laptop4.jpg"
+    ] 
+    },
+
+
+    {
+        "id": 8, 
+     "name": "Gaming PC's",
+     "price": 49,
+     "Specifications":"A product specification template provides a benchmark for product quality and ways to test product performance against your expectations during the development process. By following this document, your team helps ensure that the product will pass quality assurance.",
+     "rating": 4.1,
+     "category": "home",
+     "image": "Images/Gaming pc 180x.jpg",
+     "images": [
+        "images/laptop2.jpg",
+        "images/laptop3.jpg",
+        "images/laptop4.jpg"
+    ]
+ },
+
+
+    {
+        "id": 9,
+     "name": "Cameras",
+     "price": 49,
+     "Specifications":"camera, in photography, device for recording an image of an object on a light-sensitive surface; it is essentially a light-tight box with an aperture to admit light focused onto a sensitized film or plate",
+     "rating": 4.2, 
+     "category": "home", 
+     "image": "Images/Camera 180x.jpg",
+     "images": [
+        "images/laptop2.jpg",
+        "images/laptop3.jpg",
+        "images/laptop4.jpg"
+    ]
+     },
+
+
+    {
+        "id": 10, 
+     "name": "Electric Kattle", 
+     "price": 49, 
+     "rating": 4.6,
+     "category": "home",
+     "Specifications": "They usually have a handle on top, a spout, and a lid. Some also have a steam whistle that indicates when the water has reached its boiling point. Kettles are typically made with stainless steel but can also be made from copper or other metals.", 
+     "image": "Images/Electric cattle 180x.jpg",
+     "images": [
+        "images/laptop2.jpg",
+        "images/laptop3.jpg",
+        "images/laptop4.jpg"
+    ]
+     },
+
+
+    {
+        "id": 11,
+     "name": "Cofee Maker", 
+     "price": 49,
+     "Specifications":"A product specification template provides a benchmark for product quality and ways to test product performance against your expectations during the development process. By following this document, your team helps ensure that the product will pass quality assurance.", 
+     "rating": 4.4, 
+     "category": "home", 
+     "image": "Images/Cofee maker 180x.jpg",
+     "images": [
+        "images/laptop2.jpg",
+        "images/laptop3.jpg",
+        "images/laptop4.jpg"
+    ]
+     },
+
+
+    {
+        "id": 12,
+     "name": "Home appliances",
+     "price": 49,
+     "Specifications":"A product specification template provides a benchmark for product quality and ways to test product performance against your expectations during the development process. By following this document, your team helps ensure that the product will pass quality assurance.", 
+     "rating": 4.5,
+     "category": "home",
+     "image": "Images/Home applience 180x.jpg",
+     "images": [
+        "images/laptop2.jpg",
+        "images/laptop3.jpg",
+        "images/laptop4.jpg"
+    ]
+     }
+]
