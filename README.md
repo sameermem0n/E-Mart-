@@ -33,4 +33,4 @@ e-mart is an e-commerce website built with HTML5, Tailwind CSS, and JavaScript. 
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/sameermem0n/E-Mart->
